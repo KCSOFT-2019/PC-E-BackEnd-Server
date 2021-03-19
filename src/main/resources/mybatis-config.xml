@@ -1,0 +1,36 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE configuration-->
+<!--        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-config.dtd">-->
+<!--<configuration>-->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.xuste.pojo.User" alias="user"/>-->
+<!--        <typeAlias type="com.xuste.pojo.Statement" alias="statement"/>-->
+<!--        <typeAlias type="com.xuste.pojo.Form" alias="form"/>-->
+<!--        <typeAlias type="com.xuste.pojo.Log" alias="log"/>-->
+<!--    </typeAliases>-->
+
+<!--&lt;!&ndash;    <properties resource="application.properties">&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="spring.datasource.url" value="jdbc:mysql:///xust?useSSL=false&serverTimezone=UTC"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </properties>&ndash;&gt;-->
+<!--    -->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--&lt;!&ndash;            <dataSource type="POOLED">&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="url" value="jdbc:mysql:///xust?useSSL=false&amp;serverTimezone=UTC"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="username" value="root"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="password" value="123456"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </dataSource>&ndash;&gt;-->
+<!--            <dataSource type="POOLED"></dataSource>-->
+<!--            <property name="driver" value="${driver}" />-->
+<!--            <property name="url" value="${url}" />-->
+<!--            <property name="username" value="${name}" />-->
+<!--            <property name="password" value="${password}" />-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--    <mappers>-->
+<!--        <mapper resource="mappers/UserMapper.xml"/>-->
+<!--    </mappers>-->
+<!--</configuration>-->
