@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuste.dao.FormDao">
+    <insert id="addOne" parameterType="form">
+#         想用视图来着
+        insert into form(user_id, user_phone, user_name, user_number, user_position, description, type, picture_url)
+        values ()
+    </insert>
+</mapper>

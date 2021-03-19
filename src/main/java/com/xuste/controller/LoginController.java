@@ -2,11 +2,19 @@ package com.xuste.controller;
 
 import com.xuste.pojo.Statement;
 import com.xuste.pojo.User;
+import com.xuste.service.UserService;
+import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/")
+@Api("loginController")
 public class LoginController {
+	@Autowired
+	UserService service;
+
+
 	/*
 	* 方案一
 	* 请求学校api获取当前用户信息
@@ -24,7 +32,6 @@ public class LoginController {
 	* */
 	@PostMapping
 	public Statement loginCheck(@RequestBody User user) {
-
 
 
 
