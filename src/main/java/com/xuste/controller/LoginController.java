@@ -2,10 +2,12 @@ package com.xuste.controller;
 
 import com.xuste.pojo.Statement;
 import com.xuste.pojo.User;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/")
+@Api("loginController")
 public class LoginController {
 	/*
 	* 方案一
