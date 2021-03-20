@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface LogDao {
 	int addOne(@Param("log") Log log);
+	int deleteOne(@Param("log") Log log);
 }

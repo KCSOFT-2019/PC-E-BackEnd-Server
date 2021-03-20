@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuste.dao.LogDao">
+    <insert id="addOne" parameterType="Log">
+        insert into log(form_id, user_id_from, user_id_to, chat)
+        values (#{Log.formId}, #{Log.userIdFrom}, #{Log.userIdTo}, #{Log.chat})
+    </insert>
+</mapper>
