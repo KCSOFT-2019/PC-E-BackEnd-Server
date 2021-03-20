@@ -3,6 +3,44 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xuste.dao.FormDao">
-    <insert id="addOne" parameterType="Form">
+    <insert id="addOne">
+        insert into form(user_phone, user_name,
+                         user_number, user_position, description,
+                         type, current_status, picture_url)
+         VALUES (#{userPhone}, #{userName},
+                 #{userNumber}, #{userPosition}, #{description},
+                 #{fixType}, #{currentStatus}, #{pictureUrl})
     </insert>
+
+    <delete id="deleteOne">
+        delete from form where id = #{id}
+    </delete>
+
+
+    <update id="updateOne">
+        update form set form.current_status = #{currentStatus} where id = #{id};
+    </update>
+
+    <select id="selectManyByUser" resultMap="FormMapping">
+        select id, user_id, user_phone,
+               user_name, user_number, user_position,
+               description, type, current_status,
+               picture_url, gmt_create
+        from form where user_number = #{stuNumber}
+    </select>
+
+
+    <resultMap id="FormMapping" type="com.xuste.pojo.Form">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userName" column="user_name"/>
+        <result property="userNumber" column="user_number"/>
+        <result property="userPosition" column="user_position"/>
+        <result property="description" column="description"/>
+        <result property="fixType" column="type"/>
+        <result property="currentStatus" column="current_status"/>
+        <result property="pictureUrl" column="picture_url"/>
+        <result property="date" column="gmt_create"/>
+    </resultMap>
 </mapper>

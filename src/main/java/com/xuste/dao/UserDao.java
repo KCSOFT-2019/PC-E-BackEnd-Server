@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface UserDao {
-	int selectCount(@Param("user") User user);
-	int addOne(@Param("user") User user);
-	int selectOne(@Param("user") User user);
+	int selectCount(User user);
+	int addOne(User user);
+	int selectOne(User user);
 }

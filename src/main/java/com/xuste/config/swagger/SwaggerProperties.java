@@ -6,9 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "spring.swagger")
 @Data
 public class SwaggerProperties {
-	/**
-	 * 后台接口配置
-	 */
+
 	private SwaggerEntity back;
 
 	@Data

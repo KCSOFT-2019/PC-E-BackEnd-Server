@@ -17,18 +17,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 @EnableConfigurationProperties(value = {SwaggerProperties.class})
 public class SwaggerConfig {
-	/**
-	 * 配置属性
-	 */
+
 	@Autowired
 	private SwaggerProperties properties;
-	/**
-	 * 后台API
-	 */
+
 	@Bean
 	public Docket backApi() {
 		return new Docket(DocumentationType.OAS_30)
-				//是否开启，根据环境配置
 				.enable(properties.getBack().getEnable())
 				.groupName(properties.getBack().getGroupName())
 				.apiInfo(backApiInfo())
@@ -38,15 +33,13 @@ public class SwaggerConfig {
 				.build();
 	}
 
-	/**
-	 * 后台API信息
-	 */
+
 	private ApiInfo backApiInfo() {
 		return new ApiInfoBuilder()
 				.title(properties.getBack().getTitle())
 				.description(properties.getBack().getDescription())
 				.version(properties.getBack().getVersion())
-				.contact(    //添加开发者的一些信息
+				.contact(
 						new Contact(properties.getBack().getContactName(), properties.getBack().getContactUrl(),
 								properties.getBack().getContactEmail()))
 				.build();

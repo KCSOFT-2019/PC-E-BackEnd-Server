@@ -3,8 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xuste.dao.LogDao">
-    <insert id="addOne" parameterType="Log">
-        insert into log(form_id, user_id_from, user_id_to, chat)
-        values (#{Log.formId}, #{Log.userIdFrom}, #{Log.userIdTo}, #{Log.chat})
+    <insert id="addOne" parameterType="com.xuste.pojo.Log">
+        insert into log(form_id, user_number_from, user_number_to, chat)
+        values (#{formId}, #{userNumberFrom}, #{userNumberTo}, #{chat})
     </insert>
+
+    <delete id="deleteOne" parameterType="com.xuste.pojo.Log">
+        delete from log where user_number_from = #{userNumberFrom}
+    </delete>
+
+    <select id="selectManyByUser" resultMap="LogMapping">
+        select id, form_id, user_number_from,
+               user_number_to, chat, gmt_create
+        from log where user_number_to = #{id} or user_number_from = #{id}
+    </select>
+
+    <resultMap id="LogMapping" type="com.xuste.pojo.Log">
+        <id property="id" column="id"/>
+        <result property="formId" column="form_id"/>
+        <result property="userNumberFrom" column="user_number_from"/>
+        <result property="userNumberTo" column="user_number_to"/>
+        <result property="chat" column="chat"/>
+        <result property="createTime" column="gmt_create"/>
+    </resultMap>
 </mapper>
