@@ -7,6 +7,10 @@ import java.util.Date;
 
 @Data
 public class Log {
-	private String currentStatus;
+	private int id;
+	private int formId;
+	private long userIdFrom;
+	private long userIdTo;
+	private String chat;
 	private Date createTime;
 }
