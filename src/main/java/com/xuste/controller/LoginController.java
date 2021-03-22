@@ -32,7 +32,11 @@ public class LoginController {
 	* */
 	@PostMapping
 	public Statement loginCheck(@RequestBody User user) {
+		Statement statement = new Statement();
 
+		if (service.canLogin(user)) {
+			statement.setCode(200);
+		}
 
 
 		return new Statement();

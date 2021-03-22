@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 	UserDao dao;
 
 	@Override
-	public boolean isLogin(User user) {
+	public boolean canLogin(User user) {
 		if (dao.selectCount(user) == 1) {
 
 		}
