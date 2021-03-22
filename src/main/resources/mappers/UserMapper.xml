@@ -8,7 +8,7 @@
     </select>
 
     <select id="selectOne" resultType="java.lang.Integer">
-        select count(*) from user where user_number = #{}
+        select count(*) from user where user_number = #{user.stuNumber}
     </select>
 
     <insert id="addOne">
