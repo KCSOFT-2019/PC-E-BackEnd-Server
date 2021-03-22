@@ -2,26 +2,27 @@ create table form
 (
     id             int auto_increment
         primary key,
-    user_id        bigint      not null,
-    user_phone     bigint      not null,
-    user_name      varchar(20) not null,
-    user_number    bigint      null,
-    user_position  varchar(50) null,
-    description    text        null,
-    type           varchar(30) null comment '维修类型',
-    current_status varchar(20) null,
-    picture_url    varchar(50) null
+    user_id        bigint                             null,
+    user_phone     bigint                             not null,
+    user_name      varchar(20)                        not null,
+    user_number    bigint                             null,
+    user_position  varchar(50)                        null,
+    description    text                               null,
+    type           varchar(30)                        null comment '维修类型',
+    current_status varchar(20)                        null,
+    picture_url    varchar(50)                        null,
+    gmt_create     datetime default CURRENT_TIMESTAMP null
 );
 
 create table log
 (
-    id           bigint auto_increment
+    id               bigint auto_increment
         primary key,
-    form_id      bigint                              not null,
-    user_id_from bigint                              not null,
-    user_id_to   bigint                              not null,
-    chat         varchar(50)                         null,
-    gmt_create   timestamp default CURRENT_TIMESTAMP null
+    form_id          bigint                             not null,
+    user_number_from bigint                             not null,
+    user_number_to   bigint                             null,
+    chat             varchar(50)                        null,
+    gmt_create       datetime default CURRENT_TIMESTAMP null
 );
 
 create table user
