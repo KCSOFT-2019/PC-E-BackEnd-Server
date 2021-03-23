@@ -1,6 +1,18 @@
+create table evaluation
+(
+    id            bigint auto_increment
+        primary key,
+    form_id       bigint                             not null,
+    user_number   bigint                             null,
+    solver_number bigint                             null,
+    comments      varchar(50)                        null,
+    level         int                                null,
+    gmt_create    datetime default CURRENT_TIMESTAMP null
+);
+
 create table form
 (
-    id             int auto_increment
+    id             bigint auto_increment
         primary key,
     user_id        bigint                             null,
     user_phone     bigint                             not null,
@@ -33,12 +45,6 @@ create table user
     user_number    bigint                 not null comment '学号',
     user_password  varchar(30) default '' not null,
     user_authority int         default 0  null
-);
-
-create table user_form_merge
-(
-    user_id bigint not null,
-    form_id bigint not null
 );
 
 

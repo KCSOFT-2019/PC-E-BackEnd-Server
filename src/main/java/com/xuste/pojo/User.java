@@ -29,9 +29,9 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, long stuNumber, String password, int authority) {
+	public User(String name, long userNumber, String password, int authority) {
 		this.name = name;
-		this.userNumber = stuNumber;
+		this.userNumber = userNumber;
 		this.password = password;
 		this.authority = authority;
 	}

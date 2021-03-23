@@ -48,7 +48,7 @@ public class FormDaoTest {
 
 	@Test
 	public void selectManyByUser() {
-		List<Form> list = dao.selectManyByUser(getUser());
+		List<Form> list = dao.selectManyByUserNumber(getUser().getUserNumber());
 		System.out.println(Arrays.toString(list.toArray()));
 	}
 

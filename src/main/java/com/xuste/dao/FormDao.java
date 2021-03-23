@@ -14,6 +14,6 @@ import java.util.List;
 public interface FormDao {
 	int addOne(Form form);
 	int deleteOne(Form form);
-	List<Form> selectManyByUser(User user);
+	List<Form> selectManyByUserNumber(long userNumber);
 	int updateOne(Form form);
 }

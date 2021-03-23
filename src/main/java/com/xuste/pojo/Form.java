@@ -1,6 +1,7 @@
 package com.xuste.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
@@ -54,7 +55,8 @@ public class Form {
 	/**
 	 * 表单创建时间
 	 */
-	private Date date;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date createTime;
 
 	public Form() {
 	}

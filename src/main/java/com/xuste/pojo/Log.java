@@ -1,6 +1,7 @@
 package com.xuste.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -30,6 +31,7 @@ public class Log {
 	/**
 	 * 当前消息发送时间
 	 */
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createTime;
 
 	public Log() {

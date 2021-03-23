@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuste.dao.EvaluationDao">
+    <insert id="addOne">
+        insert into evaluation
+            (form_id, user_number, solver_number,
+             comments, level)
+        VALUES (#{formId}, #{username}, #{solverName}, #{comments}, #{level})
+    </insert>
+
+    <delete id="deleteOne">
+        delete from evaluation
+        where id = #{id}
+    </delete>
+
+    <select id="selectManyByUsername" resultMap="EvaluationMapping">
+        select id, form_id, user_number,
+               solver_number, comments, level, gmt_create
+        from evaluation
+        where user_number = #{userNumber}
+    </select>
+
+    <select id="selectManyBySolverName" resultMap="EvaluationMapping">
+        select id, form_id, user_number,
+               solver_number, comments, level, gmt_create
+        from evaluation
+        where solver_number = #{solverNumber}
+    </select>
+
+    <resultMap id="EvaluationMapping" type="com.xuste.pojo.Evaluation">
+        <id property="id" column="id"/>
+        <result property="formId" column="form_id"/>
+        <result property="userNumber" column="user_number"/>
+        <result property="solverNumber" column="solver_number"/>
+        <result property="comments" column="comments"/>
+        <result property="level" column="level"/>
+        <result property="createTime" column="gmt_create"/>
+    </resultMap>
+</mapper>

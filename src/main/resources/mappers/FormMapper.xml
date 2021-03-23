@@ -21,12 +21,12 @@
         update form set form.current_status = #{currentStatus} where id = #{id};
     </update>
 
-    <select id="selectManyByUser" resultMap="FormMapping">
+    <select id="selectManyByUserNumber" resultMap="FormMapping">
         select id, user_id, user_phone,
                user_name, user_number, user_position,
                description, type, current_status,
                picture_url, gmt_create
-        from form where user_number = #{stuNumber}
+        from form where user_number = #{userNumber}
     </select>
 
 
@@ -41,6 +41,6 @@
         <result property="fixType" column="type"/>
         <result property="currentStatus" column="current_status"/>
         <result property="pictureUrl" column="picture_url"/>
-        <result property="date" column="gmt_create"/>
+        <result property="createTime" column="gmt_create"/>
     </resultMap>
 </mapper>

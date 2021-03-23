@@ -48,7 +48,7 @@ class LogDaoTest {
 		log.setUserNumberTo(2);
 		log.setChat("fuckyou");
 
-		dao.deleteOne(log.getUserNumberFrom());
+		dao.deleteOne(log);
 	}
 
 	@Test

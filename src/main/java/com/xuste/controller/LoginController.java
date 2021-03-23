@@ -1,6 +1,6 @@
 package com.xuste.controller;
 
-import com.xuste.pojo.Statement;
+import com.xuste.pojo.ResponseMessage;
 import com.xuste.pojo.User;
 import com.xuste.service.UserService;
 import io.swagger.annotations.Api;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/")
-@Api("loginController")
+@Api("LoginController")
 public class LoginController {
 	@Autowired
 	UserService service;
@@ -31,15 +31,10 @@ public class LoginController {
 	* 重新导向一个登录注册界面, 独立使用数据库进行增删改查
 	* */
 	@PostMapping
-	public Statement loginCheck(@RequestBody User user) {
-		Statement statement = new Statement();
-
-		if (service.canLogin(user)) {
-			statement.setCode(200);
-		}
+	public ResponseMessage loginCheck(@RequestBody User user) {
 
 
-		return new Statement();
+		return new ResponseMessage();
 	}
 
 }

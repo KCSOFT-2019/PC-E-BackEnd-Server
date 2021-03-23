@@ -9,14 +9,25 @@
     </insert>
 
     <delete id="deleteOne" parameterType="com.xuste.pojo.Log">
-        delete from log where user_number_from = #{userNumberFrom}
+        delete from log
+        where gmt_create = #{createTime} and form_id = #{formId}
     </delete>
 
-    <select id="selectManyByUser" resultMap="LogMapping">
+    <select id="selectManyByFormId" resultMap="LogMapping">
         select id, form_id, user_number_from,
                user_number_to, chat, gmt_create
-        from log where user_number_to = #{id} or user_number_from = #{id}
+        from log where form_id = #{formId}
     </select>
+
+<!--    <select id="selectOne">-->
+<!--        select id, form_id, user_number_from,-->
+<!--               user_number_to, chat, gmt_create-->
+<!--        from log-->
+<!--        where user_number_from = #{userNumberFrom}-->
+<!--        and form_id = #{formId}-->
+<!--        and chat = #{chat}-->
+<!--        and gmt_create = #{}-->
+<!--    </select>-->
 
     <resultMap id="LogMapping" type="com.xuste.pojo.Log">
         <id property="id" column="id"/>

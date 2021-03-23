@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserDao dao;
+	private UserDao dao;
 
 	@Override
 	public boolean canLogin(User user) {
