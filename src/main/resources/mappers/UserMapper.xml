@@ -4,15 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xuste.dao.UserDao">
     <select id="selectCount" resultType="java.lang.Integer">
-        select count(*) from user where user_number = #{user.stuNumber};
+        select count(*) from user where user_number = #{userNumber};
     </select>
 
-    <select id="selectOne" resultType="java.lang.Integer">
-        select count(*) from user where user_number = #{user.stuNumber}
+    <select id="selectOneByUserNumber" resultMap="UserMapping">
+        select id, user_name, user_number, user_password, user_authority
+        from user where user_number = #{userNumber}
     </select>
 
     <insert id="addOne">
         insert into user(user_name, user_number, user_password, user_authority)
-        values (#{user.name}, #{user.stuNumber}, #{user.password}, 0);
+        values (#{name}, #{userNumber}, #{password}, 0);
     </insert>
+
+    <resultMap id="UserMapping" type="com.xuste.pojo.User">
+        <id property="id" column="id"/>
+        <result property="name" column="user_name"/>
+        <result property="userNumber" column="user_number"/>
+        <result property="password" column="user_password"/>
+        <result property="authority" column="user_authority"/>
+    </resultMap>
 </mapper>

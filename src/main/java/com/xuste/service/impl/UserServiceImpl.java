@@ -10,24 +10,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserDao dao;
+	private UserDao dao;
 
-	@Override
-	public boolean canLogin(User user) {
-		if (dao.selectCount(user) == 1) {
-
-		}
-
-		return false;
+	private boolean canLogin(long userNumber) {
+		return dao.selectCount(userNumber) == 1;
 	}
 
 	@Override
-	public boolean isRegistered(User user) {
+	public boolean login(long userNumber) {
+		return canLogin(userNumber);
+	}
+
+	@Override
+	public boolean isRegistered(long user) {
 		if (dao.selectCount(user) >= 1) {
 			return false;
 		} else {
 			dao.addOne(user);
 		}
 		return true;
+	}
+
+	@Override
+	public User getOneByUserNumber(long UserNumber) {
+		return dao.selectOneByUserNumber(UserNumber);
 	}
 }

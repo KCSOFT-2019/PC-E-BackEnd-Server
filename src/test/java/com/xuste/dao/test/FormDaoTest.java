@@ -43,12 +43,12 @@ public class FormDaoTest {
 
 	@Test
 	public void deleteOne() {
-		dao.deleteOne(getForm());
+		dao.deleteOne(getForm().getId());
 	}
 
 	@Test
 	public void selectManyByUser() {
-		List<Form> list = dao.selectManyByUser(getUser());
+		List<Form> list = dao.selectManyByUserNumber(getUser().getUserNumber());
 		System.out.println(Arrays.toString(list.toArray()));
 	}
 

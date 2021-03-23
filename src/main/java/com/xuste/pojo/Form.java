@@ -1,6 +1,7 @@
 package com.xuste.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
@@ -10,10 +11,16 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
+@ApiModel(value = "Form", description = "请求表单")
 public class Form {
 	/**
 	 * 对应数据库中 form 表的 id
 	 */
+	@ApiModelProperty(value = "id",
+			name = "表单的 id",
+			dataType = "long",
+			example = "1111"
+	)
 	private long id;
 	/**
 	 * 填写表单用户的 id
@@ -54,7 +61,8 @@ public class Form {
 	/**
 	 * 表单创建时间
 	 */
-	private Date date;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date createTime;
 
 	public Form() {
 	}

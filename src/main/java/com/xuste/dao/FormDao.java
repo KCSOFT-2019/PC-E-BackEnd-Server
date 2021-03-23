@@ -13,7 +13,8 @@ import java.util.List;
 @Mapper
 public interface FormDao {
 	int addOne(Form form);
-	int deleteOne(Form form);
-	List<Form> selectManyByUser(User user);
+	int deleteOne(long formId);
+	List<Form> selectManyByUserNumber(long userNumber);
+	Form selectOneByFormId(long formId);
 	int updateOne(Form form);
 }
