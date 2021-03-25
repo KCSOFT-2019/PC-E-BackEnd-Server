@@ -2,11 +2,13 @@ package com.xuste.pojo;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@ApiModel(value = "Log", description = "对话信息")
 public class Log {
 	/**
 	 * 对应 log 在数据库中的 id

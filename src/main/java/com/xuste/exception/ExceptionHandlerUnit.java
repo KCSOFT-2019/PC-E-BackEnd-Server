@@ -3,15 +3,14 @@ package com.xuste.exception;
 
 import com.xuste.controller.EvaluationController;
 import com.xuste.controller.FormController;
-import com.xuste.controller.LoginController;
-import com.xuste.controller.UserLogController;
+import com.xuste.controller.UserLoginController;
+import com.xuste.controller.LogController;
 import com.xuste.exception.token.BadTokenFoundException;
 import com.xuste.exception.token.NullTokenFoundException;
 import com.xuste.exception.token.NullUserNumberFoundException;
 import com.xuste.exception.token.UserNotFoundException;
 import com.xuste.pojo.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,8 +19,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.Date;
 
 @RestControllerAdvice(assignableTypes = {FormController.class,
-		LoginController.class,
-		UserLogController.class,
+		UserLoginController.class,
+		LogController.class,
 		EvaluationController.class
 })
 public class ExceptionHandlerUnit {

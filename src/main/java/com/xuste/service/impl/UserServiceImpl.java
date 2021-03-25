@@ -32,7 +32,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getOneByUserNumber(long UserNumber) {
-		return dao.selectOneByUserNumber(UserNumber);
+	public User getOneByUserNumber(long userNumber) {
+		return dao.selectOneByUserNumber(userNumber);
+	}
+
+	@Override
+	public boolean updateUserInfoByUserNumber(long userNumber) {
+		return dao.updateUserInfoByUserNumber(userNumber) == 1;
 	}
 }

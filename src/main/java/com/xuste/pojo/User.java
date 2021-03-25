@@ -1,9 +1,11 @@
 package com.xuste.pojo;
 
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 @Data
+@ApiModel(value = "User", description = "用户信息")
 public class User {
 	/**
 	 * 表中的 id
@@ -25,6 +27,22 @@ public class User {
 	 * 用户权限
 	 */
 	private int authority;
+	/**
+	 * 是否为老师
+	 */
+	private boolean isTeacher;
+	/**
+	 * 学院
+	 */
+	private String college;
+	/**
+	 * 班级
+	 */
+	private String userClass;
+	/**
+	 * 年级
+	 */
+	private long grade;
 
 	public User() {
 	}

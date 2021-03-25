@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/login")
 @Api("LoginController")
 @CrossOrigin
-public class LoginController {
+public class UserLoginController {
 	@Autowired
 	UserService service;
 
@@ -37,7 +37,7 @@ public class LoginController {
 	public ResponseMessage loginCheck(@RequestBody JSONObject object) {
 		ResponseMessage message = new ResponseMessage();
 		long userNumber = object.getLong("userNumber");
-
+		System.out.println(userNumber);
 		if (service.login(userNumber)) {
 			message.setMessage("success");
 			message.setAuthorization(tokenService.getToken(userNumber));

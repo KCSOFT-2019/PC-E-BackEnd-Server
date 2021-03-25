@@ -8,7 +8,8 @@
     </select>
 
     <select id="selectOneByUserNumber" resultMap="UserMapping">
-        select id, user_name, user_number, user_password, user_authority
+        select id, user_name, user_number, user_password, user_authority,
+               user_is_teacher, user_college, user_class, grade
         from user where user_number = #{userNumber}
     </select>
 

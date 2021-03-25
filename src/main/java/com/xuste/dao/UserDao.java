@@ -10,4 +10,5 @@ public interface UserDao {
 	int selectCount(long userNumber);
 	int addOne(long user);
 	User selectOneByUserNumber(long userNumber);
+	int updateUserInfoByUserNumber(long userNumber);
 }

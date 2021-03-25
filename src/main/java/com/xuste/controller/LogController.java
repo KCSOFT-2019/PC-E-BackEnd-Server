@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/log")
 @Api("UserLogController")
 @CrossOrigin
-public class UserLogController {
+public class LogController {
 	@Autowired
 	private LogService service;
 
