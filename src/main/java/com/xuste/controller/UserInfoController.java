@@ -1,6 +1,7 @@
 package com.xuste.controller;
 
 
+import com.sun.el.parser.Token;
 import com.xuste.exception.NullValueFoundException;
 import com.xuste.pojo.User;
 import com.xuste.service.TokenService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
+@CrossOrigin
 public class UserInfoController {
 	@Autowired
 	UserService service;
@@ -25,9 +27,12 @@ public class UserInfoController {
 	}
 
 	@GetMapping
-	public void getUserInfo(@RequestHeader("Authorization") String token) throws NullValueFoundException {
-		if (service.getOneByUserNumber(TokenServiceImpl.getStuNumber(token)) == null) {
+	public User getUserInfo(@RequestHeader("Authorization") String token) throws NullValueFoundException {
+//		System.out.println(TokenServiceImpl.getStuNumber(token));
+		User user = service.getOneByUserNumber(TokenServiceImpl.getStuNumber(token));
+		if (user == null) {
 			throw new NullValueFoundException();
 		}
+		return user;
 	}
 }

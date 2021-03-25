@@ -37,7 +37,7 @@ public class UserLoginController {
 	public ResponseMessage loginCheck(@RequestBody JSONObject object) {
 		ResponseMessage message = new ResponseMessage();
 		long userNumber = object.getLong("userNumber");
-		System.out.println(userNumber);
+//		System.out.println(userNumber);
 		if (service.login(userNumber)) {
 			message.setMessage("success");
 			message.setAuthorization(tokenService.getToken(userNumber));

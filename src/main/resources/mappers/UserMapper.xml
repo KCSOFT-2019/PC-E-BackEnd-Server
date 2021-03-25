@@ -24,5 +24,9 @@
         <result property="userNumber" column="user_number"/>
         <result property="password" column="user_password"/>
         <result property="authority" column="user_authority"/>
+        <result property="isTeacher" column="user_is_teacher"/>
+        <result property="college" column="user_college"/>
+        <result property="userClass" column="user_class"/>
+        <result property="grade" column="grade"/>
     </resultMap>
 </mapper>

@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"com.xuste.dao"})
-@PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
+//@PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
