@@ -30,8 +30,14 @@ public class FormServiceImpl implements FormService {
 	}
 
 	@Override
+	public List<Form> selectAll() {
+		return dao.selectAll();
+	}
+
+	@Override
 	public Form updateOne(Form form) {
 		if (dao.updateOne(form) == 1) {
+//			System.out.println(form.getId());
 			return dao.selectOneByFormId(form.getId());
 		}
 		return null;

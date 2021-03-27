@@ -7,9 +7,9 @@
         insert into form(user_phone, user_name,
                          user_number, user_position, description,
                          type, current_status, picture_url)
-         VALUES (#{userPhone}, #{userName},
-                 #{userNumber}, #{userPosition}, #{description},
-                 #{fixType}, #{currentStatus}, #{pictureUrl})
+        VALUES (#{userPhone}, #{userName},
+                #{userNumber}, #{userPosition}, #{description},
+                #{fixType}, #{currentStatus}, #{pictureUrl});
     </insert>
 
     <delete id="deleteOne">
@@ -18,13 +18,16 @@
 
 
     <update id="updateOne">
-        update form set
-        form.current_status = #{currentStatus}
+        update form
+            <set>
+                <if test="pictureUrl != null">form.picture_url = #{pictureUrl} ,</if>
+                <if test="currentStatus != null">form.current_status = #{currentStatus}</if>
+            </set>
         where id = #{id};
     </update>
 
 
-    <select id="selectOne" resultMap="FormMapping">
+    <select id="selectOneByFormId" resultMap="FormMapping">
         select id, user_id, user_phone,
                user_name, user_number, user_position,
                description, type, current_status,
@@ -40,6 +43,13 @@
         from form where user_number = #{userNumber}
     </select>
 
+    <select id="selectAll" resultMap="FormMapping">
+        select id, user_id, user_phone,
+               user_name, user_number, user_position,
+               description, type, current_status,
+               picture_url, gmt_create
+        from form
+    </select>
 
     <resultMap id="FormMapping" type="com.xuste.pojo.Form">
         <id property="id" column="id"/>

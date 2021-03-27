@@ -9,7 +9,7 @@
 
     <select id="selectOneByUserNumber" resultMap="UserMapping">
         select id, user_name, user_number, user_password, user_authority,
-               user_is_teacher, user_college, user_class, grade
+               user_is_teacher, user_college, user_class, grade, user_phone
         from user where user_number = #{userNumber}
     </select>
 
@@ -27,6 +27,7 @@
         <result property="isTeacher" column="user_is_teacher"/>
         <result property="college" column="user_college"/>
         <result property="userClass" column="user_class"/>
+        <result property="userPhone" column="user_phone"/>
         <result property="grade" column="grade"/>
     </resultMap>
 </mapper>

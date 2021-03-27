@@ -15,6 +15,7 @@ public interface FormDao {
 	int addOne(Form form);
 	int deleteOne(long formId);
 	List<Form> selectManyByUserNumber(long userNumber);
+	List<Form> selectAll();
 	Form selectOneByFormId(long formId);
 	int updateOne(Form form);
 }

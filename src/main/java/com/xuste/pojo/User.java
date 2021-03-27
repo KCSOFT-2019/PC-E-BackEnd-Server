@@ -43,6 +43,10 @@ public class User {
 	 * 年级
 	 */
 	private long grade;
+	/**
+	 * 手机号
+	 */
+	private long userPhone;
 
 	public User() {
 	}
